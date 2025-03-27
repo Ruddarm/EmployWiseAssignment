@@ -1,0 +1,42 @@
+:root{
+    --themeColor:#111418;
+    --fontColor: gainsboro;
+    --themeContrast:rgb(35, 42, 49);
+    --headFontFamily:'Poppins';
+
+    --contrastOutline: 1px solid gainsboro;
+}
+.demo{
+    outline: 1px solid gainsboro;
+}
+.bgred{
+    background-color: red;
+}
+
+.flex-row{
+    display: flex;
+
+}
+.flex-btw{
+    justify-content: space-between;
+
+}
+.flex-align-center{
+    align-items: center;
+    /* background-color: pink; */
+    align-content: center;
+}
+
+.pad-top-bottom{
+    padding: 0.5rem 0rem;
+    /* background-color: red; */
+}
+
+.sml-text{
+    font-size: 1rem !important;
+}
+
+.width100{
+    min-width: 100% I !important;
+    background-color: pink !important;
+}
