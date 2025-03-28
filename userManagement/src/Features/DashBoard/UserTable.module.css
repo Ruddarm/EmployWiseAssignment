@@ -1,0 +1,86 @@
+.tableContainer {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    /* display: flex; */
+    /* flex-direction: column; */
+    color: var(--fontColor);
+    /* background-color: red; */
+
+}
+
+
+.scrlDiv {
+    width: 100%;
+    height: 100%;
+    max-height: 100%; 
+    /* background-color: orange; */
+    /* display: flex; */
+    overflow: hidden;
+}
+
+.tableWrapper {
+    width: 100%;
+    min-height: 100%;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.userTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.userTable thead {
+    position: sticky;
+    top: 0;
+    background-color: var(--themeColor);
+    color: var(--fontColor);
+    z-index: 500;
+}
+
+.userTable tbody {
+    max-height:100%;
+    height: 100%;
+    font-family: var(--headFontFamily);
+    overflow-y: auto;
+    /* background-color: pink; */
+}
+
+.userTableRow td,
+.userTableRow th {
+    padding: 10px;
+    border: 1px solid var(--themeContrast);
+    text-align: center;
+}
+
+/* Scrollbar Styling */
+.tableWrapper::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+    background-color: #d1d5dbbe;
+    border-radius: 0px;
+}
+.optionBtnContainer{
+    display:flex;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.25rem;
+    /* background-color: red; */
+
+}
+.optionLogo{
+    width: 2rem;
+    height:2rem;
+    /* display: none; */
+    
+}

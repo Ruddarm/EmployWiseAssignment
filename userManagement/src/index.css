@@ -1,9 +1,8 @@
 :root{
     --themeColor:#111418;
-    --fontColor: gainsboro;
+    --fontColor: #D1D5DB;
     --themeContrast:rgb(35, 42, 49);
     --headFontFamily:'Poppins';
-
     --contrastOutline: 1px solid gainsboro;
 }
 .demo{
@@ -37,6 +36,7 @@
 }
 
 .width100{
-    min-width: 100% I !important;
+    min-width: 100%  !important;
     background-color: pink !important;
 }
+

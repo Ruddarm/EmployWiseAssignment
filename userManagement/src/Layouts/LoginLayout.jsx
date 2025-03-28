@@ -1,4 +1,3 @@
-import React from 'react'
 import Style from './LoginLayout.module.css'
 
 function LoginLayout({children}){
