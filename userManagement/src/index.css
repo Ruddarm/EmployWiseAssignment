@@ -10,20 +10,22 @@
 }
 .bgred{
     background-color: red;
+    display: flex;
 }
 
 .flex-row{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
 
 }
 .flex-btw{
-    justify-content: space-between;
 
 }
 .flex-align-center{
-    align-items: center;
     /* background-color: pink; */
-    align-content: center;
 }
 
 .pad-top-bottom{
@@ -36,7 +38,7 @@
 }
 
 .width100{
-    min-width: 100%  !important;
+    width: max-content  !important;
     background-color: pink !important;
 }
 

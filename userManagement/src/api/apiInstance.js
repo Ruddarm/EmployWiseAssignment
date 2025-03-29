@@ -6,15 +6,21 @@ const axiosInstance  = axios.create({
 }) 
 
 axiosInstance.interceptors.response.use(
-    (res)=>res,(error)=>{
+    (res) => res,
+    (error) => {
         let errorMsg = "Something went wrong";
-        if(error.response){
+        let errorData = null;
+
+        if (error.response) {
             errorMsg = error.response.data?.message || error.response.status;
-        }else if(error.request){
+            errorData = error.response.data; // Pura response data save kar rahe hain
+        } else if (error.request) {
             errorMsg = "Network Error. Please Check your connection";
         }
-        return Promise.reject(new Error(errorMsg));
+
+        return Promise.reject({ message: errorMsg, data: errorData });
     }
-)
+);
+
 
 export default axiosInstance

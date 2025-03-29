@@ -21,7 +21,10 @@ function GetuserByName() {}
 function UpdateUser() {}
 
 // Delete suer
-function DeleteUser() {}
+async function DeleteUser(id) {
+  const response = await axiosInstance.delete(`api/users/${id}`);
+  console.log(response)
+  return response.data;
+}
 
-
-export {fetchUserList}
+export { fetchUserList  , DeleteUser};

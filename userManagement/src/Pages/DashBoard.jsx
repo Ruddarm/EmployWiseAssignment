@@ -4,20 +4,20 @@ import MainLayout from "../Layouts/MainLayout";
 import Dstyle from "./DashBoard.module.css";
 import { UserList } from "../Hooks/userHooks";
 import Loading from "../Component/loader";
+import { useUser } from "../Hooks/userContex";
 function DashBoardPage() {
-  const { user, loading, error, nextPage } = UserList();
-  // console.log(user);
+  const { userList, loading, totalPage ,error, setPage , handleDelete } = useUser();
+  console.log(userList)
   return (
     <MainLayout>
       <div className={Dstyle.DashBoardPageContainer}>
-
         <SearchBar></SearchBar>
         <div className={Dstyle.DashBoardUserTableContianer}>
-          <UserTable userlist={user?.data ? user.data : []}></UserTable>
+          <UserTable></UserTable>
         </div>
         <div className={Dstyle.DashBoardPageIndexContainer}>
-          {Array.from({ length: parseInt(user?.total_pages) }).map((_, idx) => (
-            <PageBtn key={idx} clickFun={nextPage} idx={idx + 1}></PageBtn>
+          {Array.from({ length: parseInt(totalPage) }).map((_, idx) => (
+            <PageBtn key={idx} clickFun={setPage} idx={idx + 1}></PageBtn>
           ))}
         </div>
       </div>

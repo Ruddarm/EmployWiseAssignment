@@ -8,19 +8,17 @@ function MainLayout({ children }) {
   // const { user, setUser } = useUser();
   return (
     <>
-      <div className={mainStyle.MainLayoutContainer}>
-        {/* Header */}
-        <Header></Header>
-        {/* Body */}
-        <div className={mainStyle.MainBodyContainer}>
-          <UserProvider>
+        <div className={mainStyle.MainLayoutContainer}>
+          {/* Header */}
+          <Header></Header>
+          {/* Body */}
+          <div className={mainStyle.MainBodyContainer}>
             <SideBar>
               <UpdateUser></UpdateUser>
             </SideBar>
             <div className={mainStyle.DashBoardContainer}>{children}</div>
-          </UserProvider>
+          </div>
         </div>
-      </div>
     </>
   );
 }

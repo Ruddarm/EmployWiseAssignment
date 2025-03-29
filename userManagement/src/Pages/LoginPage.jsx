@@ -3,8 +3,10 @@ import React from "react";
 import LogStyle from "./LoginPage.module.css";
 import LoginForm from "../Features/Auth/loginForm";
 import LoginLayout from "../Layouts/LoginLayout";
+import useAuthHooks from "../Hooks/authHooks";
 
 function LoginPage() {
+  
   return (
     <>
       <LoginLayout>

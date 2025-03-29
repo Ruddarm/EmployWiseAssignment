@@ -7,6 +7,7 @@ import prsnIcon from "../../assets/man.png";
 import { useEffect } from "react";
 function UpdateUser() {
   const { user } = useUser();
+  console.log(useUser())
   return (
     <div className={Style.UpdateUserContainer}>
       <div className={Style.avatarContainer}>

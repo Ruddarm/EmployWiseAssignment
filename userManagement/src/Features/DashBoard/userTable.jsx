@@ -1,17 +1,28 @@
 import tStyle from "./userTable.module.css";
 import edit from "../../assets/pen.png";
 import delLogo from "../../assets/deleteLogo.png";
-import { UpdateUserHook, UserList } from "../../Hooks/userHooks";
-import { useCallback } from "react";
+import { UserList } from "../../Hooks/userHooks";
+import { useCallback, useState } from "react";
 import { useUser } from "../../Hooks/userContex";
 import Loading from "../../Component/loader";
 import LoaderDiv from "../../Component/loader";
-function UserRow({ user, editFun }) {
+function UserRow({ user, editFun, delFun, }) {
   // console.log(editFun);
+  const [deleteEffect, setDeleteEffect] = useState(false);
 
+  async function handelDelete() {
+    setDeleteEffect(true);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    delFun(user.id);
+    setDeleteEffect(false);
+  }
   return (
     <>
-      <tr className={tStyle.userTableRow}>
+      <tr
+        className={`${tStyle.userTableRow} ${
+          deleteEffect ? tStyle.deleteRow : ""
+        }`}
+      >
         <td className={tStyle.sr}>{user.id}</td>
         <td>
           <div className={tStyle.aimge}>
@@ -38,7 +49,7 @@ function UserRow({ user, editFun }) {
           </button>
         </td>
         <td>
-          <button className={tStyle.optionBtnContainer}>
+          <button onClick={handelDelete} className={tStyle.optionBtnContainer}>
             <img className={tStyle.optionLogo} src={delLogo}></img>
           </button>
         </td>
@@ -46,7 +57,8 @@ function UserRow({ user, editFun }) {
     </>
   );
 }
-function UserTable({ userlist }) {
+function UserTable() {
+  const {userList , selectUser, handleDelete  } = useUser();
   const { updateUser } = useUser();
   const { loading } = UserList();
   const handleEdit = useCallback(
@@ -56,11 +68,12 @@ function UserTable({ userlist }) {
     },
     [updateUser]
   );
-  console.log('loading is ',loading)
+
+  console.log("loading is ", loading);
 
   return (
     <div className={tStyle.tableContainer}>
-      {loading && (<LoaderDiv/>)}
+      {loading && <LoaderDiv />}
       <div className={tStyle.scrlDiv}>
         <div className={tStyle.tableWrapper}>
           <table className={tStyle.userTable}>
@@ -76,8 +89,13 @@ function UserTable({ userlist }) {
               </tr>
             </thead>
             <tbody>
-              {userlist?.map((data, key) => (
-                <UserRow user={data} key={key} editFun={handleEdit}></UserRow>
+              {userList?.map((data, key) => (
+                <UserRow
+                  delFun={handleDelete}
+                  user={data}
+                  key={key}
+                  editFun={handleEdit}
+                ></UserRow>
               ))}
             </tbody>
           </table>
