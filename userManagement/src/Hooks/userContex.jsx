@@ -6,12 +6,13 @@ const UserContext = createContext();
 // Provider component
 export const UserProvider = ({ children }) => {
   const [userList, setUserList] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null); 
+  const [selectedUser, setSelectedUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [update, setUpdate] = useState(false);
+  const [openUpdate, setOpenUpdate] = useState(false);
 
   const getUserData = async () => {
     try {
@@ -42,11 +43,12 @@ export const UserProvider = ({ children }) => {
   };
 
   const selectUser = (user) => {
+    setOpenUpdate(true);
     setSelectedUser(user);
   };
 
   // Update User
-  const updateUser = (newData) => {
+  const updateSingleUser = (newData) => {
     setUpdate(true);
     setUserList((prevList) =>
       prevList.map((user) =>
@@ -54,6 +56,10 @@ export const UserProvider = ({ children }) => {
       )
     );
     setSelectedUser(newData);
+  };
+  const closeUpdate = () => {
+    setOpenUpdate(false);
+    setSelectedUser(null);
   };
 
   return (
@@ -65,10 +71,13 @@ export const UserProvider = ({ children }) => {
         loading,
         error,
         totalPage,
+        setSelectedUser,
         page,
+        openUpdate,
+        closeUpdate,
         setPage,
         handleDelete,
-        updateUser,
+        updateSingleUser,
         updateContainer: { update, setUpdate },
       }}
     >

@@ -40,7 +40,6 @@ function UserRow({ user, editFun, delFun, }) {
         <td>
           <button
             onClick={() => {
-              console.log("clikc", user);
               editFun(user);
             }}
             className={tStyle.optionBtnContainer}
@@ -59,14 +58,14 @@ function UserRow({ user, editFun, delFun, }) {
 }
 function UserTable() {
   const {userList , selectUser, handleDelete  } = useUser();
-  const { updateUser } = useUser();
+  // const { updateUser } = useUser();
   const { loading } = UserList();
   const handleEdit = useCallback(
     (userData) => {
       console.log("Updating user:", userData);
-      updateUser(userData);
+      selectUser(userData);
     },
-    [updateUser]
+    [selectUser]
   );
 
   console.log("loading is ", loading);
