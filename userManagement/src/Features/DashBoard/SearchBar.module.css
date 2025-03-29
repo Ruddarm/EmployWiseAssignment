@@ -51,3 +51,11 @@
     /* background-color: beige; */
     height: 1rem;
 }
+
+@media (max-width: 768px) {
+.SeachBarContainer{
+    /* background-color: orange; */
+    width: 100%;
+}
+
+}

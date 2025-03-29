@@ -5,8 +5,10 @@
     border-radius: 5px;
     overflow: hidden;
     display: flex;
+    max-width: 100%;
     flex-direction: column;
     background-color: var(--themeColor);
+    /* background-color: blue; */
 
 }
 
@@ -20,6 +22,7 @@
 }
 .DashBoardPageIndexContainer{
     width: 100%;
+
     background-color: var(--themeContrast);
     display: flex;
     justify-content: flex-end;

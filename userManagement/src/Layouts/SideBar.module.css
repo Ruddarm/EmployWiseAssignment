@@ -43,3 +43,25 @@
     }
   }
   
+
+  @media (max-width: 768px) {
+    .SideBarContianer {
+      /* width: 90%; */
+      position: absolute;
+      z-index: 2000;
+      width: 100%;
+      top: 2;
+      left: 0;
+      /* background-color: pink; */
+    }
+    @keyframes expandWidth {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    
+  }
+  
