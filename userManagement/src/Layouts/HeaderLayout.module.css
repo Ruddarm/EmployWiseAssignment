@@ -1,7 +1,7 @@
 .HeaderLayoutContainer{
     width: 100%;
     display: flex;
-    height: auto;
+    height: 3.5rem;
     background-color: var(--themeColor);
 }
 .HeaderRight{
@@ -15,7 +15,7 @@
 }
 .HeaderLeft{
     width: 50%;
-
+    display: flex;
     /* background-color: orange; */
 
 }
@@ -23,4 +23,42 @@
     width: 2.5rem;
     border-radius: 5px;
     height:  2.5rem;
+}
+.leftContainer{
+    width: 100%;
+    display: flex;
+    padding: 0rem 1rem;
+    /* background-color: pink;; */
+    height: 100%;
+}
+
+.OptionListContianer{
+    /* background-color: green; */
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+}
+
+#headerIcon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#HeaderBtn{
+    border: none;
+    outline:none;
+    display: flex;
+    width: 3rem;
+    padding: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: var(--themeContrast);
+    border: 2px solid var(--themeContrast);
+    /* background-color: transparent; */
 }

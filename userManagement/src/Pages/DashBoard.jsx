@@ -2,27 +2,39 @@ import SearchBar from "../Features/DashBoard/SearchBar";
 import UserTable from "../Features/DashBoard/userTable";
 import MainLayout from "../Layouts/MainLayout";
 import Dstyle from "./DashBoard.module.css";
-
+import { UserList } from "../Hooks/userHooks";
+import Loading from "../Component/loader";
 function DashBoardPage() {
+  const { user, loading, error, nextPage } = UserList();
+  // console.log(user);
   return (
     <MainLayout>
-      {" "}
       <div className={Dstyle.DashBoardPageContainer}>
+
         <SearchBar></SearchBar>
         <div className={Dstyle.DashBoardUserTableContianer}>
-          <UserTable></UserTable>
+          <UserTable userlist={user?.data ? user.data : []}></UserTable>
         </div>
         <div className={Dstyle.DashBoardPageIndexContainer}>
-          <PageBtn idx={1}></PageBtn>
-          <PageBtn idx={2}></PageBtn>
-          <PageBtn idx={3}></PageBtn>
-          <PageBtn idx={4}></PageBtn>
+          {Array.from({ length: parseInt(user?.total_pages) }).map((_, idx) => (
+            <PageBtn key={idx} clickFun={nextPage} idx={idx + 1}></PageBtn>
+          ))}
         </div>
       </div>
     </MainLayout>
   );
 }
-function PageBtn({ idx }) {
-  return <button className={Dstyle.pageBtn}>{idx}</button>;
+function PageBtn({ idx, clickFun }) {
+  return (
+    <button
+      onClick={() => {
+        // console.log("click",idx)
+        clickFun(idx);
+      }}
+      className={Dstyle.pageBtn}
+    >
+      {idx}
+    </button>
+  );
 }
 export default DashBoardPage;
